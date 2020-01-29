@@ -12,7 +12,7 @@
     include_once('esp-database.php');
 
     $result = getAllOutputs();
-    $html_buttons;
+    $html_buttons = null;
     if ($result) {
         while ($row = $result->fetch_assoc()) {
             if ($row["state"] == "1"){
@@ -26,7 +26,7 @@
     }
 
     $result2 = getAllBoards();
-    $html_boards;
+    $html_boards = null;
     if ($result2) {
         $html_boards .= '<h3>Boards</h3>';
         while ($row = $result2->fetch_assoc()) {

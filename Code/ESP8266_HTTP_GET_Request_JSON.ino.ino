@@ -33,12 +33,13 @@ void setup() {
   Serial.begin(115200);
   
   WiFi.mode(WIFI_STA);
-  WiFiMulti.addAP(ssid, password);
-  while((WiFiMulti.run() == WL_CONNECTED)) { 
+  Serial.print("Connecting to ");
+  Serial.println(ssid);
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.print(".");
   }
-  Serial.println("");
   Serial.println("Connected to WiFi");
 }
 
